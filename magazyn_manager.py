@@ -15,7 +15,7 @@ class Manager():
             # print(fh)
             # time.sleep(1)
             if fh.startswith("saldo"):
-                self.lista.append(fh)
+                self.lista.append(fh) 
                 money = fhand.readline().strip()
                 com = fhand.readline().strip()
                 self.saldo += int(money)
