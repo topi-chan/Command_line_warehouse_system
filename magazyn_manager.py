@@ -69,7 +69,7 @@ class Manager():
                 else:
                     print("Brak takiego produktu w magazynie")
                     quit()
-            if fh.startswith("stop"):
+            if fh == "":
                 return (self.saldo, self.lista, self.magazyn)
                 break
 
