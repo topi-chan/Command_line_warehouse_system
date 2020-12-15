@@ -1,6 +1,7 @@
 import sys
 import time
-from magazyn import file_read
+from magazyn_manager import *
 
-(saldo, lista, magazyn) = file_read(sys.argv[1])
+magazyn = Manager()
+(saldo, lista, magazyn) = magazyn.file_read(sys.argv[1])
 print("Stan konta: ", saldo)

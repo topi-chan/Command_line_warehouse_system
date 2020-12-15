@@ -8,7 +8,7 @@ class Manager():
         self.lista = []
         self.magazyn = {}
 
-    def file_read(fhand):
+    def file_read(self, fhand):
         fhand = open(fhand)
         while True:
             fh = fhand.readline().strip()
@@ -72,7 +72,7 @@ class Manager():
                 return (self.saldo, self.lista, self.magazyn)
                 break
 
-    def file_write(fname, lista):
+    def file_write(self, fname, lista):
         fd = open(fname, "a")
         for element in self.lista:
             fd.write(str(element))
