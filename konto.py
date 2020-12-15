@@ -1,5 +1,3 @@
-import sys
-import time
 from magazyn_manager import *
 
 manager = Manager()
