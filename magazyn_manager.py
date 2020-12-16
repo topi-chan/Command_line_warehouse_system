@@ -7,7 +7,10 @@ class Manager():
         self.saldo = 0
         self.lista = []
         self.magazyn = {}
-        self.actions = None
+        self.actions = {}
+        self.manager_sell = None
+        self.manager_buy = None
+        self.manager_balance = None
 
     def file_read(self, fhand):
         fhand = open(fhand)
@@ -16,7 +19,7 @@ class Manager():
             if fh.startswith("saldo"):
                 self.lista.append(fh)
                 money = fhand.readline().strip()
-                com = fhand.readline().strip()
+                commentary = fhand.readline().strip()
                 self.saldo += int(money)
                 self.lista.append(money)
                 self.lista.append(com)
@@ -26,7 +29,6 @@ class Manager():
                 pieces = int(fhand.readline().strip())
                 self.zakup(name, price, pieces)
             if fh.startswith("sprzedaż"):
-                self.lista.append(fh)
                 name = fhand.readline().strip()
                 if name in self.magazyn:
                     self.sprzedaz(name, price, pieces)
