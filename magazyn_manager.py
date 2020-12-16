@@ -7,28 +7,7 @@ class Manager():
         self.saldo = 0
         self.lista = []
         self.magazyn = {}
-        self.nowa_lista = []
-        self.actions = {}
         self.actions = None
-    #
-    # def zakup(self, name, price, pieces):
-    #     self.lista.append("zakup")
-    #     if price < 0:
-    #         print("Błąd - cena nie może być mniejsza od zera")
-    #         quit()
-    #     if pieces < 0:
-    #         print("Błąd - liczba sztuk nie może być mniejsza od zera")
-    #         quit()
-    #     if (price * pieces) <= self.saldo:
-    #         self.lista.append(name)
-    #         self.lista.append(price)
-    #         self.lista.append(pieces)
-    #         self.magazyn[name] = self.magazyn.get(name, 0) +pieces
-    #         self.saldo -= (price * pieces)
-    #     else:
-    #         print("Błąd - brak wystarczającej ilości środków na koncie")
-    #         quit()
-
 
     def file_read(self, fhand):
         fhand = open(fhand)
@@ -50,23 +29,7 @@ class Manager():
                 self.lista.append(fh)
                 name = fhand.readline().strip()
                 if name in self.magazyn:
-                    price = int(fhand.readline().strip())
-                    if price < 0:
-                        print("Błąd - cena nie może być mniejsza od zera")
-                        quit()
-                    pieces = int(fhand.readline().strip())
-                    if pieces < 0:
-                        print("Błąd - liczba sztuk nie może być mniejsza od zera")
-                        quit()
-                    if (price * pieces) <= self.saldo:
-                        self.lista.append(name)
-                        self.lista.append(price)
-                        self.lista.append(pieces)
-                        self.magazyn[name] = self.magazyn.get(name, 0) -pieces
-                        self.saldo -= (price * pieces)
-                    else:
-                        print("Błąd - brak wystarczającej ilości środków na koncie")
-                        quit()
+                    self.sprzedaz(name, price, pieces)
                 else:
                     print("Brak takiego produktu w magazynie")
                     quit()
@@ -78,6 +41,11 @@ class Manager():
         for element in self.lista:
             fd.write(str(element))
             fd.write("\n")
+
+    def assign(self, name, qty):
+        def decorator(cb):
+            self.actions[name] = (cb, qty)
+        return decorator
 
     def review(self):
         saldo = 0
@@ -153,8 +121,3 @@ class Manager():
                 break
         for element in lista:
             print(element)
-
-    def assign(self, name, qty):
-        def decorator(cb):
-            self.actions[name] = (cb, qty)
-        return decorator
