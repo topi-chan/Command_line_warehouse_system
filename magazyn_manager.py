@@ -17,21 +17,13 @@ class Manager():
         while True:
             fh = fhand.readline().strip()
             if fh.startswith("saldo"):
-                self.lista.append(fh)
-                money = fhand.readline().strip()
-                commentary = fhand.readline().strip()
-                self.saldo += int(money)
-                self.lista.append(money)
-                self.lista.append(com)
+                self.manager_balance(money, commentary)
             if fh.startswith("zakup"):
-                name = fhand.readline().strip()
-                price = int(fhand.readline().strip())
-                pieces = int(fhand.readline().strip())
-                self.zakup(name, price, pieces)
+                self.manager_buy(name, price, pieces)
             if fh.startswith("sprzedaż"):
                 name = fhand.readline().strip()
                 if name in self.magazyn:
-                    self.sprzedaz(name, price, pieces)
+                    self.manager_sell(name, price, pieces)
                 else:
                     print("Brak takiego produktu w magazynie")
                     quit()
