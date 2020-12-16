@@ -1,5 +1,6 @@
 import sys
 
+
 class Manager():
     """Warehouse management system"""
 

@@ -1,3 +1,5 @@
+from magazyn_manager import *
+
 def manager_create():
     manager = Manager()
     @manager.assign("zakup", 3)
@@ -42,10 +44,11 @@ def manager_create():
             print("Błąd - brak wystarczającej ilości środków na koncie")
             quit()
     @manager.assign("saldo", 2)
-        def manager_balance(manager, money, commentary):
-            money = fhand.readline().strip()
-            commentary = fhand.readline().strip()
-            manager.lista.append("saldo")
-            manager.saldo += int(money)
-            manager.lista.append(money)
-            manager.lista.append(commentary)
+    def manager_balance(manager, money, commentary):
+        money = fhand.readline().strip()
+        commentary = fhand.readline().strip()
+        manager.lista.append("saldo")
+        manager.saldo += int(money)
+        manager.lista.append(money)
+        manager.lista.append(commentary)
+    return manager
