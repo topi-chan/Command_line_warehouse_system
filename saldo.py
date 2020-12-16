@@ -12,3 +12,5 @@ import sys
 
 manager = manager_create()
 manager.file_read(sys.argv[1])
+print(manager.lista)
+#manager.file_write(sys.argv[1])

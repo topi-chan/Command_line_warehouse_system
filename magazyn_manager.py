@@ -18,20 +18,15 @@ class Manager():
         while True:
             fh = fhand.readline().strip()
             if fh.startswith("saldo"):
-                self.manager_balance(money, commentary)
+                self.assign("saldo", 2)
             if fh.startswith("zakup"):
-                self.manager_buy(name, price, pieces)
+                self.assign("zakup", 3)
             if fh.startswith("sprzedaż"):
-                name = fhand.readline().strip()
-                if name in self.magazyn:
-                    self.manager_sell(name, price, pieces)
-                else:
-                    print("Brak takiego produktu w magazynie")
-                    quit()
+                self.assign("sprzedaż", 3)
             if fh == "":
                 return (self.saldo, self.lista, self.magazyn)
 
-    def file_write(self, fname, lista):
+    def file_write(self, fname):
         fd = open(fname, "w")
         for element in self.lista:
             fd.write(str(element))
