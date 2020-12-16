@@ -1,4 +1,4 @@
-import time, sys
+import sys
 
 class Manager():
     """Warehouse management system"""
@@ -13,8 +13,6 @@ class Manager():
         fhand = open(fhand)
         while True:
             fh = fhand.readline().strip()
-            # print(fh)
-            # time.sleep(1)
             if fh.startswith("saldo"):
                 self.lista.append(fh)
                 money = fhand.readline().strip()
@@ -71,7 +69,6 @@ class Manager():
                     quit()
             if fh == "":
                 return (self.saldo, self.lista, self.magazyn)
-                break
 
     def file_write(self, fname, lista):
         fd = open(fname, "a")
