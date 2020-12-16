@@ -12,11 +12,4 @@ sprzedaż
 raspberry
 25000
 5
-zakup
-jetson
-10000
-4
-zakup
-jetson
-5
-2
+

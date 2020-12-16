@@ -18,6 +18,7 @@ class Manager():
         while True:
             fh = fhand.readline().strip()
             if fh.startswith("saldo"):
+#czy self.manager_balance() - ale wtedy zwraca błąd "obiekt None"
                 self.assign("saldo", 2)
             if fh.startswith("zakup"):
                 self.assign("zakup", 3)
