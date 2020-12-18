@@ -1,4 +1,4 @@
 from magazyn_manager import *
 
-magazyn = Manager()
-magazyn.review()
+manager = Manager()
+manager.review()

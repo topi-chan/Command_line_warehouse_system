@@ -1,6 +1,7 @@
-from magazyn_manager import *
+from mg import manager_create
+import sys
 
-manager = Manager()
+manager = manager_create()
 manager.file_read(sys.argv[1])
-manager.zakup(sys.argv[2], int(sys.argv[3]), int(sys.argv[4]))
-manager.file_write(sys.argv[1], manager.nowa_lista)
+manager.argv_read()
+manager.file_write(sys.argv[1])

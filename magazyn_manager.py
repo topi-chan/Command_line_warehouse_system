@@ -30,7 +30,6 @@ class Manager():
         self.actions[filename][0](self, *args)
         return (self.saldo, self.lista, self.magazyn)
 
-
     def file_write(self, fname):
         fd = open(fname, "w")
         for element in self.lista:
@@ -61,7 +60,7 @@ class Manager():
                     lista.append(fh)
                     lista.append(money)
                     lista.append(com)
-                fh
+                continue
             if fh.startswith("zakup"):
                 name = fhand.readline().strip()
                 price = int(fhand.readline().strip())
@@ -81,7 +80,7 @@ class Manager():
                         lista.append(name)
                         lista.append(price)
                         lista.append(pieces)
-                    fh
+                    continue
                 else:
                     print("Błąd - brak wystarczającej ilości środków na koncie")
                     quit()
@@ -105,14 +104,14 @@ class Manager():
                             lista.append(name)
                             lista.append(price)
                             lista.append(pieces)
-                        fh
+                        continue
                     else:
                         print("Błąd - brak wystarczającej ilości środków na koncie")
                         quit()
                 else:
                     print("Brak takiego produktu w magazynie")
                     quit()
-            if fh.startswith("stop"):
+            if fh.startswith(""):
                 break
         for element in lista:
             print(element)

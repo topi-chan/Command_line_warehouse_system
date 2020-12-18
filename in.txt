@@ -15,3 +15,15 @@ raspberry
 saldo
 300
 zus
+zakup
+mac
+10000
+5
+sprzedaż
+mac
+15000
+5
+zakup
+mac
+10000
+5

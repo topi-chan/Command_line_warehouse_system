@@ -52,4 +52,7 @@ def manager_create():
         manager.saldo += int(money)
         manager.lista.append(money)
         manager.lista.append(commentary)
+    @manager.assign("konto", 0)
+    def manager_balance(manager):
+        pass
     return manager
