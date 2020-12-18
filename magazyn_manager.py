@@ -12,6 +12,8 @@ class Manager():
         self.manager_sell = None
         self.manager_buy = None
         self.manager_balance = None
+        self.manager_review = None
+        self.manager_warehouse = None
 
     def file_read(self, fhand):
         fhand = open(fhand)

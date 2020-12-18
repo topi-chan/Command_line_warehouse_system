@@ -1,6 +1,6 @@
-from magazyn_manager import *
+from mg import manager_create
+import sys
 
-manager = Manager()
+manager = manager_create()
 manager.file_read(sys.argv[1])
-for arg in sys.argv[2:]:
-    print(arg, manager.magazyn[arg])
+manager.argv_read()

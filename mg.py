@@ -53,6 +53,10 @@ def manager_create():
         manager.lista.append(money)
         manager.lista.append(commentary)
     @manager.assign("konto", 0)
-    def manager_balance(manager):
-        pass
+    def manager_review(manager):
+        print("Stan konta: ", manager.saldo)
+    @manager.assign("magazyn", 1)
+    def manager_warehouse(manager, *any_argument):
+        for arg in sys.argv[2:]:
+            print(arg, manager.magazyn[arg])
     return manager
