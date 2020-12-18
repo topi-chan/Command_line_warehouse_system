@@ -12,4 +12,6 @@ sprzedaż
 raspberry
 25000
 5
-
+saldo
+300
+zus

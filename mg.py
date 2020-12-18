@@ -4,12 +4,11 @@ def manager_create():
     manager = Manager()
     @manager.assign("zakup", 3)
     def manager_buy(manager, name, price, pieces):
-        name = fhand.readline().strip()
-        price = int(fhand.readline().strip())
+        price = int(price)
+        pieces = int(pieces)
         if price < 0:
             print("Błąd - cena nie może być mniejsza od zera")
             quit()
-        price = int(fhand.readline().strip())
         if pieces < 0:
             print("Błąd - liczba sztuk nie może być mniejsza od zera")
             quit()
@@ -25,17 +24,16 @@ def manager_create():
             quit()
     @manager.assign("sprzedaż", 3)
     def manager_sell(manager, name, price, pieces):
-        name = fhand.readline().strip()
-        if name in self.magazyn:
-            price = int(fhand.readline().strip())
+        price = int(price)
+        pieces = int(pieces)
+        if name in manager.magazyn:
             if price < 0:
                 print("Błąd - cena nie może być mniejsza od zera")
                 quit()
-            pieces = int(fhand.readline().strip())
             if pieces < 0:
                 print("Błąd - liczba sztuk nie może być mniejsza od zera")
                 quit()
-            if (price * pieces) <= self.saldo:
+            if (price * pieces) <= manager.saldo:
                 manager.lista.append("sprzedaż")
                 manager.lista.append(name)
                 manager.lista.append(price)
@@ -50,8 +48,6 @@ def manager_create():
             quit()
     @manager.assign("saldo", 2)
     def manager_balance(manager, money, commentary):
-        money = fhand.readline().strip()
-        commentary = fhand.readline().strip()
         manager.lista.append("saldo")
         manager.saldo += int(money)
         manager.lista.append(money)

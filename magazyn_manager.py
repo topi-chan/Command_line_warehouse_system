@@ -1,4 +1,4 @@
-import sys
+import sys, os
 
 
 class Manager():
@@ -17,15 +17,19 @@ class Manager():
         fhand = open(fhand)
         while True:
             fh = fhand.readline().strip()
-            if fh.startswith("saldo"):
-#czy self.manager_balance() - ale wtedy zwraca błąd "obiekt None"
-                self.assign("saldo", 2)
-            if fh.startswith("zakup"):
-                self.assign("zakup", 3)
-            if fh.startswith("sprzedaż"):
-                self.assign("sprzedaż", 3)
             if fh == "":
                 return (self.saldo, self.lista, self.magazyn)
+            args = [fhand.readline().strip() for i in range(self.actions[fh][1])]
+            self.actions[fh][0](self, *args)
+
+    def argv_read(self):
+        fh = sys.argv[0]
+        path = os.path.splitext(fh)
+        filename = path[-2]
+        args = sys.argv[2:]
+        self.actions[filename][0](self, *args)
+        return (self.saldo, self.lista, self.magazyn)
+
 
     def file_write(self, fname):
         fd = open(fname, "w")
